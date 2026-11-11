@@ -1,0 +1,50 @@
+{
+  "name": "hostvault",
+  "productName": "HostVault",
+  "version": "1.0.0",
+  "description": "Encrypted host and access manager for penetration tests (GUI + CLI)",
+  "main": "out/main/index.js",
+  "author": "HostVault",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build && node scripts/build-cli.mjs",
+    "start": "electron-vite preview",
+    "cli": "node out/cli/hv.cjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "postinstall": "electron-builder install-app-deps",
+    "dist:mac": "npm run build && electron-builder --mac --universal",
+    "test:gui": "node tests/gui/walk.cjs"
+  },
+  "dependencies": {
+    "better-sqlite3-multiple-ciphers": "^13.0.3",
+    "commander": "^15.1.0",
+    "fast-xml-parser": "^5.12.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^6.3.0",
+    "autoprefixer": "^10.6.2",
+    "dompurify": "^3.4.17",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "esbuild": "^0.28.2",
+    "framer-motion": "^14.11.1",
+    "lucide-react": "^1.70.0",
+    "marked": "^18.2.0",
+    "postcss": "^8.5.32",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7",
+    "vitest": "^5.1.0",
+    "zustand": "^5.1.0"
+  }
+}

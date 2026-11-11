@@ -1,0 +1,23 @@
+appId: tech.threatvector.hostvault
+productName: HostVault
+directories: { output: dist, buildResources: resources }
+files:
+  - out/main/**
+  - out/preload/**
+  - out/renderer/**
+  - package.json
+asar: true
+asarUnpack:
+  - node_modules/better-sqlite3-multiple-ciphers/**
+extraResources:
+  - { from: out/cli/hv.cjs, to: cli/hv.cjs }
+mac:
+  category: public.app-category.developer-tools
+  target: [{ target: dmg, arch: [universal] }, { target: zip, arch: [universal] }]
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  darkModeSupport: false
+  x64ArchFiles: "**/*.node"
+dmg:
+  title: HostVault
+  window: { width: 540, height: 380 }

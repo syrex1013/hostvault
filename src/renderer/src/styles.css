@@ -1,0 +1,25 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root { --row-py: 10px; }
+:root[data-density='compact'] { --row-py: 5px; }
+:root[data-density='comfy'] { --row-py: 14px; }
+:root[data-accent='soft'] { --accent-alpha: .06; }
+html, body, #root { height: 100%; }
+body { @apply bg-white text-ink-900 font-sans antialiased; -webkit-font-smoothing: antialiased; overflow: hidden; }
+* { scrollbar-width: thin; scrollbar-color: #d4d4d8 transparent; }
+::selection { background: #fecaca; }
+.drag { -webkit-app-region: drag; } .no-drag { -webkit-app-region: no-drag; }
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 select-none disabled:opacity-40 disabled:pointer-events-none active:scale-[.97] no-drag; }
+  .btn-primary { @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700 hover:shadow-glow; }
+  .btn-ghost { @apply btn text-ink-700 hover:bg-ink-100; }
+  .btn-outline { @apply btn border border-ink-200 bg-white text-ink-700 hover:border-brand-300 hover:text-brand-700; }
+  .btn-danger { @apply btn border border-brand-200 bg-brand-50 text-brand-700 hover:bg-brand-100; }
+  .input { @apply w-full rounded-lg border border-ink-200 bg-white px-3 py-1.5 text-sm outline-none transition placeholder:text-ink-400 focus:border-brand-500 focus:shadow-glow; }
+  .label { @apply mb-1 block text-xs font-medium uppercase tracking-wide text-ink-500; }
+  .card { @apply rounded-xl border border-ink-200 bg-white shadow-card; }
+  .kbd { @apply rounded border border-ink-200 bg-ink-50 px-1.5 py-0.5 font-mono text-[10px] text-ink-500; }
+}
+.md p { margin: .4em 0 } .md ul { list-style: disc; padding-left: 1.2em } .md code { @apply rounded bg-ink-100 px-1 font-mono text-[0.85em]; } .md pre { @apply my-2 overflow-auto rounded-lg bg-ink-900 p-3 text-xs text-ink-100; } .md h1,.md h2,.md h3 { font-weight: 600; margin: .6em 0 .2em }
+.md blockquote { @apply border-l-2 border-brand-300 pl-3 text-ink-500; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+:root[data-reduce-motion='true'] *, :root[data-reduce-motion='true'] *::before { animation-duration: .01ms !important; transition-duration: .01ms !important; }
